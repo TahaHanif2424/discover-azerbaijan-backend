@@ -1,98 +1,171 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🇦🇿 Discover Azerbaijan Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A NestJS-based backend application powered by Prisma ORM and PostgreSQL, providing the API infrastructure for the Discover Azerbaijan platform.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 🛠️ Tech Stack
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Framework:** [NestJS](https://nestjs.com/)
+- **Database ORM:** [Prisma](https://www.prisma.io/)
+- **Database:** [PostgreSQL](https://www.postgresql.org/)
+- **Containerization:** [Docker](https://www.docker.com/)
 
-## Project setup
+---
 
-```bash
-$ npm install
-```
+## 📋 Prerequisites
 
-## Compile and run the project
+Before running the application, make sure you have the following installed on your system:
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [npm](https://www.npmjs.com/) (bundled with Node.js)
+- [Docker](https://www.docker.com/products/docker-desktop/) (highly recommended for running the database)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Install Dependencies
+
+Clone the repository and install the project dependencies:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Run tests
+### 2. Configure Environment Variables
+
+Create or update the `.env` file in the root directory. You can use the following default local database configuration:
+
+```env
+DATABASE_URL=postgresql://postgres:mysecretpassword@localhost:5432/postgres
+```
+
+---
+
+## 🗄️ Running the Database
+
+We provide a pre-configured `docker-compose.yml` file to spin up a PostgreSQL instance instantly.
+
+### Option A: Running with Docker (Recommended)
+
+1. **Start the database container:**
+   ```bash
+   docker compose up -d
+   ```
+   This will download the PostgreSQL image (if not already downloaded) and start a container named `discover-azerbaijan-db` running in the background.
+
+2. **Stop the database container:**
+   ```bash
+   docker compose down
+   ```
+
+### Option B: Running without Docker (Local PostgreSQL Installation)
+
+If you prefer to run PostgreSQL directly on your local machine:
+1. Ensure PostgreSQL is installed and running on port `5432`.
+2. Create a database (e.g., named `postgres`).
+3. Update the `DATABASE_URL` in your `.env` file with your custom database username, password, and port:
+   ```env
+   DATABASE_URL=postgresql://<YOUR_USERNAME>:<YOUR_PASSWORD>@localhost:5432/<YOUR_DB_NAME>
+   ```
+
+---
+
+## 🔄 Database Setup & Migrations (Prisma)
+
+Once your database is up and running, you need to apply the database schema and generate the client:
+
+### 1. Apply Schema / Create Migrations
+To sync your Prisma schema with the database and create a migration:
+```bash
+npx prisma migrate dev --name init
+```
+*Note: If you just want to push the schema directly to the database without tracking migrations (suitable for quick local prototyping), run:*
+```bash
+npx prisma db push
+```
+
+### 2. Generate Prisma Client
+To generate the Prisma Client code so TypeScript can query the database with full autocomplete support:
+```bash
+npx prisma generate
+```
+
+---
+
+## 🔍 Inspecting the Database
+
+Here are the ways you can inspect your database tables, schemas, and data:
+
+### Option 1: Using Prisma Studio (Recommended GUI)
+Prisma provides a built-in visual database browser:
+```bash
+npx prisma studio
+```
+This opens a local web application at [http://localhost:5555](http://localhost:5555) where you can easily read, search, create, update, and delete database records.
+
+### Option 2: Logging into the Docker Container (CLI via psql)
+If you are running the database using Docker, you can connect directly to PostgreSQL inside the container using the command line:
+
+1. **Log in to the database shell inside the container:**
+   ```bash
+   docker exec -it my-postgres psql -U postgres -d postgres
+   ```
+   *(Note: replace `-d postgres` with `-d <YOUR_DB_NAME>` if your database name differs in `.env`)*
+
+2. **Useful `psql` Commands inside the shell:**
+   - **List all tables:**
+     ```sql
+     \dt
+     ```
+   - **Describe a table's schema (e.g., the `User` table):**
+     ```sql
+     \d "User"
+     ```
+     *(Note: quotes are required around table names as Prisma uses casing for model names)*
+   - **Query table records:**
+     ```sql
+     SELECT * FROM "User";
+     ```
+   - **Exit the `psql` shell:**
+     ```sql
+     \q
+     ```
+
+---
+
+## 💻 Running the Application
+
+### Development Mode
+Runs the application with hot-reloading enabled, meaning it automatically restarts when files change:
+```bash
+npm run start:dev
+```
+
+### Production Mode
+Builds the production bundle and runs the compiled JavaScript:
+```bash
+npm run build
+npm run start:prod
+```
+
+### Debug Mode
+```bash
+npm run start:debug
+```
+
+---
+
+## 🧪 Testing
 
 ```bash
-# unit tests
-$ npm run test
+# Unit tests
+npm run test
 
-# e2e tests
-$ npm run test:e2e
+# End-to-end (e2e) tests
+npm run test:e2e
 
-# test coverage
-$ npm run test:cov
+# Test coverage
+npm run test:cov
 ```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
