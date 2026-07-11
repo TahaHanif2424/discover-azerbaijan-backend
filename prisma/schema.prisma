@@ -11,7 +11,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("db url")
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -21,5 +21,34 @@ model User {
   password  String
   role      String   @default("user")
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+}
+
+model TripCategory {
+  id          String   @id @default(uuid())
+  title       String
+  subtitle    String?
+  description String?
+  img         String?
+  tag         String?
+  tone        String?  @default("primary")
+  
+  trips       Trip[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Trip {
+  id              String   @id @default(uuid())
+  title           String
+  description     String?
+  price           Float?
+  durationDays    Int?
+  img             String?
+  
+  categoryId      String
+  category        TripCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 }
