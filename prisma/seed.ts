@@ -7,7 +7,7 @@ const categories = [
     title: 'Family',
     subtitle: 'Memories for Generations',
     description: 'Relaxed cultural strolls, interactive museums, and kid-friendly resort stays from Baku to historic Sheki.',
-    img: '/Trips/family.jpg',
+    img: '/uploads/family.jpg',
     tag: 'All Ages',
     tone: 'primary',
   },
@@ -15,7 +15,7 @@ const categories = [
     title: 'Friends',
     subtitle: 'Group Excursions & Fun',
     description: 'Action-packed off-roading, vibrant seaside beach clubs, and memorable group tours through active mud volcanoes.',
-    img: '/Trips/friends.jpg',
+    img: '/uploads/friends.jpg',
     tag: 'Social',
     tone: 'primary',
   },
@@ -23,7 +23,7 @@ const categories = [
     title: 'Couples',
     subtitle: 'Romantic Getaways',
     description: 'Private spa retreats, scenic cable cars over snowy peaks, and candlelit dinners overlooking the Caspian Sea skyline.',
-    img: '/Trips/couple.jpg',
+    img: '/uploads/couple.jpg',
     tag: 'Romance',
     tone: 'primary',
   },
@@ -31,7 +31,7 @@ const categories = [
     title: 'Adventure',
     subtitle: 'Highland Thrills',
     description: 'Explore breathtaking hiking trails, paragliding, and rugged mountain terrains perfect for adrenaline seekers.',
-    img: '/Trips/adventure.jpg',
+    img: '/uploads/adventure.jpg',
     tag: 'Active',
     tone: 'primary',
   },
@@ -41,8 +41,6 @@ async function main() {
   console.log('Seeding trip categories...');
   
   for (const category of categories) {
-    // We use createMany or upsert here, but since title is not marked as unique in schema,
-    // we'll just check if it exists first to avoid duplicates if run multiple times.
     const existing = await prisma.tripCategory.findFirst({
       where: { title: category.title },
     });
@@ -53,7 +51,11 @@ async function main() {
       });
       console.log(`Created category: ${category.title}`);
     } else {
-      console.log(`Category already exists: ${category.title}`);
+      await prisma.tripCategory.update({
+        where: { id: existing.id },
+        data: { img: category.img },
+      });
+      console.log(`Updated existing category image for: ${category.title}`);
     }
   }
 
