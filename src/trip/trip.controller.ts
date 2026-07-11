@@ -1,7 +1,8 @@
-import { Controller, Post, Get, Body, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Controller, Post, Get, Patch, Delete, Param, Body, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { TripService } from './trip.service';
 import { CreateTripDto } from './dto/create-trip.dto';
+import { UpdateTripDto } from './dto/update-trip.dto';
 import { multerOptions } from '../utils/multer.config';
 
 @Controller('trip')
@@ -21,6 +22,22 @@ export class TripController {
   @Get()
   findAll() {
     return this.tripService.findAll();
+  }
+
+  @Patch(':id')
+  @UseInterceptors(FileInterceptor('image', multerOptions))
+  update(
+    @Param('id') id: string,
+    @Body() updateDto: UpdateTripDto,
+    @UploadedFile() file?: Express.Multer.File,
+  ) {
+    const imgPath = file ? `/uploads/${file.filename}` : undefined;
+    return this.tripService.update(id, updateDto, imgPath);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.tripService.remove(id);
   }
 }
 
