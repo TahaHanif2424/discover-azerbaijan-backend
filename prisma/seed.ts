@@ -1,4 +1,5 @@
 import { PrismaClient } from '../generated/prisma/client';
+import * as bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
@@ -37,9 +38,35 @@ const categories = [
   },
 ];
 
+const users = [
+  {
+    email: 'tahahanif24@gmail.com',
+    name: 'Taha Bin Hanif',
+    password: 'discover123*',
+    role: 'admin',
+  },
+  {
+    email: 'zqazilbash@gmail.com',
+    name: 'Zulfiqar Ali',
+    password: 'discover123*',
+    role: 'admin',
+  },
+  {
+    email: 'abeehamahin@gmail.com',
+    name: 'Abeeha Mahin',
+    password: 'discover123*',
+    role: 'admin',
+  }, {
+    email: 'arishashhd@gmail.com',
+    name: 'Aarish Shahid',
+    password: 'discover123*',
+    role: 'marketing',
+  }
+];
+
 async function main() {
   console.log('Seeding trip categories...');
-  
+
   for (const category of categories) {
     const existing = await prisma.tripCategory.findFirst({
       where: { title: category.title },
@@ -59,6 +86,37 @@ async function main() {
     }
   }
 
+  console.log('Seeding users...');
+  for (const user of users) {
+    const existing = await prisma.user.findUnique({
+      where: { email: user.email },
+    });
+
+    if (!existing) {
+      const hashedPassword = await bcrypt.hash(user.password, 10);
+      await prisma.user.create({
+        data: {
+          email: user.email,
+          name: user.name,
+          password: hashedPassword,
+          role: user.role,
+        },
+      });
+      console.log(`Created user: ${user.email}`);
+    } else {
+      const hashedPassword = await bcrypt.hash(user.password, 10);
+      await prisma.user.update({
+        where: { id: existing.id },
+        data: {
+          name: user.name,
+          password: hashedPassword,
+          role: user.role,
+        },
+      });
+      console.log(`Updated existing user password/role for: ${user.email}`);
+    }
+  }
+
   console.log('Seeding complete.');
 }
 
@@ -70,3 +128,4 @@ main()
   .finally(async () => {
     await prisma.$disconnect();
   });
+
