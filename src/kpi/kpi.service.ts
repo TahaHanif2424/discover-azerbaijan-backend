@@ -6,8 +6,22 @@ import { UpdateKpiDto } from './dto/update-kpi.dto';
 export class KpiService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findAll() {
+  async findAll(startDate?: string, endDate?: string) {
+    const where: any = {};
+    if (startDate || endDate) {
+      where.updatedAt = {};
+      if (startDate) {
+        where.updatedAt.gte = new Date(startDate);
+      }
+      if (endDate) {
+        const end = new Date(endDate);
+        end.setHours(23, 59, 59, 999);
+        where.updatedAt.lte = end;
+      }
+    }
+
     return this.prisma.kpi.findMany({
+      where,
       orderBy: { createdAt: 'asc' },
     });
   }

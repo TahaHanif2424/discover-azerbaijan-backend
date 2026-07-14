@@ -7,6 +7,7 @@ import {
   UseGuards,
   Request,
   ForbiddenException,
+  Query,
 } from '@nestjs/common';
 import { KpiService } from './kpi.service';
 import { UpdateKpiDto } from './dto/update-kpi.dto';
@@ -18,11 +19,15 @@ export class KpiController {
   constructor(private readonly kpiService: KpiService) {}
 
   @Get()
-  async findAll(@Request() req) {
+  async findAll(
+    @Request() req,
+    @Query('startDate') startDate?: string,
+    @Query('endDate') endDate?: string,
+  ) {
     if (req.user.role === 'user') {
       throw new ForbiddenException('Access denied');
     }
-    return this.kpiService.findAll();
+    return this.kpiService.findAll(startDate, endDate);
   }
 
   @Patch(':id')
