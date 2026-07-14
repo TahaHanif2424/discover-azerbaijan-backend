@@ -6,9 +6,17 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
 import { TripCategoryModule } from './trip-category/trip-category.module';
 import { TripModule } from './trip/trip.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [UserModule, ConfigModule.forRoot({ isGlobal: true }), PrismaModule, TripCategoryModule, TripModule],
+  imports: [
+    UserModule,
+    ConfigModule.forRoot({ isGlobal: true }),
+    PrismaModule,
+    TripCategoryModule,
+    TripModule,
+    AuthModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
