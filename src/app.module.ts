@@ -7,6 +7,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { TripCategoryModule } from './trip-category/trip-category.module';
 import { TripModule } from './trip/trip.module';
 import { AuthModule } from './auth/auth.module';
+import { KpiModule } from './kpi/kpi.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AuthModule } from './auth/auth.module';
     TripCategoryModule,
     TripModule,
     AuthModule,
+    KpiModule,
   ],
   controllers: [AppController],
   providers: [AppService],

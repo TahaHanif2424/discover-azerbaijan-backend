@@ -52,3 +52,17 @@ model Trip {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 }
+
+model Kpi {
+  id          String   @id @default(uuid())
+  category    String   // 'awareness', 'engagement', 'conversion'
+  name        String   @unique
+  w1          String
+  w2          String
+  w3          String
+  w4          String
+  total       String
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
