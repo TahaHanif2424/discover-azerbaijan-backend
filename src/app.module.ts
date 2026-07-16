@@ -8,6 +8,7 @@ import { TripCategoryModule } from './trip-category/trip-category.module';
 import { TripModule } from './trip/trip.module';
 import { AuthModule } from './auth/auth.module';
 import { KpiModule } from './kpi/kpi.module';
+import { OrderModule } from './order/order.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { KpiModule } from './kpi/kpi.module';
     TripModule,
     AuthModule,
     KpiModule,
+    OrderModule,
   ],
   controllers: [AppController],
   providers: [AppService],
