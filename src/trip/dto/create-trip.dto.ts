@@ -8,6 +8,10 @@ export class CreateTripDto {
 
   @IsString()
   @IsOptional()
+  subtitle?: string;
+
+  @IsString()
+  @IsOptional()
   description?: string;
 
   @IsNumber()
@@ -19,6 +23,19 @@ export class CreateTripDto {
   @IsOptional()
   @Type(() => Number)
   durationDays?: number;
+
+  @IsString()
+  @IsOptional()
+  durationText?: string;
+
+  @IsOptional()
+  itinerary?: any;
+
+  @IsOptional()
+  inclusions?: any;
+
+  @IsOptional()
+  pricing?: any;
 
   @IsString()
   @IsNotEmpty()

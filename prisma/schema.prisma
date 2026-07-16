@@ -41,10 +41,16 @@ model TripCategory {
 model Trip {
   id              String   @id @default(uuid())
   title           String
+  subtitle        String?
   description     String?
   price           Float?
   durationDays    Int?
+  durationText    String?
   img             String?
+  
+  itinerary       Json?
+  inclusions      Json?
+  pricing         Json?
   
   categoryId      String
   category        TripCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)

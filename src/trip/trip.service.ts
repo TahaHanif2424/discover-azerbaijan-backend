@@ -8,11 +8,21 @@ export class TripService {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(createDto: CreateTripDto, imgPath?: string) {
+    const data = { ...createDto, img: imgPath };
+    
+    // Parse JSON strings if they come from FormData
+    if (typeof data.itinerary === 'string') {
+      try { data.itinerary = JSON.parse(data.itinerary); } catch (e) {}
+    }
+    if (typeof data.inclusions === 'string') {
+      try { data.inclusions = JSON.parse(data.inclusions); } catch (e) {}
+    }
+    if (typeof data.pricing === 'string') {
+      try { data.pricing = JSON.parse(data.pricing); } catch (e) {}
+    }
+
     return this.prisma.trip.create({
-      data: {
-        ...createDto,
-        img: imgPath,
-      },
+      data,
     });
   }
 
@@ -36,6 +46,16 @@ export class TripService {
     const dataToUpdate: any = { ...updateDto };
     if (imgPath) {
       dataToUpdate.img = imgPath;
+    }
+
+    if (typeof dataToUpdate.itinerary === 'string') {
+      try { dataToUpdate.itinerary = JSON.parse(dataToUpdate.itinerary); } catch (e) {}
+    }
+    if (typeof dataToUpdate.inclusions === 'string') {
+      try { dataToUpdate.inclusions = JSON.parse(dataToUpdate.inclusions); } catch (e) {}
+    }
+    if (typeof dataToUpdate.pricing === 'string') {
+      try { dataToUpdate.pricing = JSON.parse(dataToUpdate.pricing); } catch (e) {}
     }
 
     return this.prisma.trip.update({
