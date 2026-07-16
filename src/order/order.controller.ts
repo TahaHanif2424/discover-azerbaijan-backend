@@ -18,4 +18,11 @@ export class OrderController {
   findAll() {
     return this.orderService.findAll();
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Post(':id/status')
+  updateStatus(@Body('status') status: string, @Request() req) {
+    const orderId = req.params.id;
+    return this.orderService.updateStatus(orderId, status);
+  }
 }
