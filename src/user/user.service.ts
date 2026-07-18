@@ -25,5 +25,26 @@ export class UserService {
       where: { id },
     });
   }
+
+  updateOtp(userId: string, otp: string, otpExpiry: Date) {
+    return this.prisma.user.update({
+      where: { id: userId },
+      data: { otp, otpExpiry },
+    });
+  }
+
+  verifyEmail(userId: string) {
+    return this.prisma.user.update({
+      where: { id: userId },
+      data: { isEmailVerified: true, otp: null, otpExpiry: null },
+    });
+  }
+
+  updatePassword(userId: string, passwordHash: string) {
+    return this.prisma.user.update({
+      where: { id: userId },
+      data: { password: passwordHash, otp: null, otpExpiry: null },
+    });
+  }
 }
 

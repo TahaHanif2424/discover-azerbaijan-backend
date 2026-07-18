@@ -9,9 +9,11 @@ import { TripModule } from './trip/trip.module';
 import { AuthModule } from './auth/auth.module';
 import { KpiModule } from './kpi/kpi.module';
 import { OrderModule } from './order/order.module';
+import { EmailModule } from './email/email.module';
 
 @Module({
   imports: [
+    EmailModule,
     UserModule,
     ConfigModule.forRoot({ isGlobal: true }),
     PrismaModule,
