@@ -5,12 +5,13 @@ import { PrismaService } from '../prisma/prisma.service';
 export class OrderService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(userId: string, tripId: string, phone?: string) {
+  async create(userId: string, tripId: string, phone?: string, details?: any) {
     return this.prisma.order.create({
       data: {
         userId,
         tripId,
         phone,
+        details: details || null,
         status: 'pending'
       }
     });

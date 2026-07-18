@@ -8,9 +8,14 @@ export class OrderController {
 
   @UseGuards(JwtAuthGuard)
   @Post()
-  create(@Body('tripId') tripId: string, @Body('phone') phone: string, @Request() req) {
+  create(
+    @Body('tripId') tripId: string, 
+    @Body('phone') phone: string, 
+    @Body('details') details: any,
+    @Request() req
+  ) {
     const userId = req.user.id;
-    return this.orderService.create(userId, tripId, phone);
+    return this.orderService.create(userId, tripId, phone, details);
   }
 
   @UseGuards(JwtAuthGuard)
