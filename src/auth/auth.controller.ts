@@ -37,6 +37,21 @@ export class AuthController {
     return result;
   }
 
+  @Post('google')
+  async googleLogin(@Body('credential') credential: string, @Res({ passthrough: true }) res: Response) {
+    if (!credential) {
+      throw new UnauthorizedException('Google credential is required');
+    }
+    const result = await this.authService.googleLogin(credential);
+    res.cookie('access_token', result.access_token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+    return result;
+  }
+
   @Post('logout')
   async logout(@Res({ passthrough: true }) res: Response) {
     res.clearCookie('access_token');
