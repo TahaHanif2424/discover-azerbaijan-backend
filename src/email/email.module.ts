@@ -15,7 +15,7 @@ import { EmailService } from './email.service';
         },
       },
       defaults: {
-        from: '"Discover Azerbaijan" <noreply@discoverazerbaijan.com>',
+        from: `"Discover Azerbaijan" <${process.env.SMTP_USER || 'noreply@discoverazerbaijan.com'}>`,
       },
     }),
   ],

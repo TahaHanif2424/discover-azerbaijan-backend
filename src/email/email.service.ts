@@ -21,9 +21,12 @@ export class EmailService {
         `,
       });
       console.log(`OTP sent to ${to}`);
-    } catch (error) {
-      console.error('Error sending email:', error);
-      throw new Error('Could not send verification email');
+    } catch (error: any) {
+      console.error('Error sending email via SMTP:', error);
+      console.log('\n==================================================');
+      console.log(`[LOCAL DEV BYPASS] OTP for ${to} is: ${otp}`);
+      console.log('==================================================\n');
+      throw new Error('Could not send verification email: ' + error.message);
     }
   }
 
@@ -43,9 +46,12 @@ export class EmailService {
         `,
       });
       console.log(`Password reset OTP sent to ${to}`);
-    } catch (error) {
-      console.error('Error sending email:', error);
-      throw new Error('Could not send password reset email');
+    } catch (error: any) {
+      console.error('Error sending password reset email via SMTP:', error);
+      console.log('\n==================================================');
+      console.log(`[LOCAL DEV BYPASS] Password Reset OTP for ${to} is: ${otp}`);
+      console.log('==================================================\n');
+      throw new Error('Could not send password reset email: ' + error.message);
     }
   }
 }
