@@ -48,7 +48,6 @@ model Trip {
   title           String
   subtitle        String?
   description     String?
-  price           Float?
   durationDays    Int?
   durationText    String?
   img             String?
@@ -56,6 +55,14 @@ model Trip {
   itinerary       Json?
   inclusions      Json?
   pricing         Json?
+  
+  // Package price specifications
+  price3Star              Float?
+  price4Star              Float?
+  price5Star              Float?
+  islamabadDepartureAddOn Float?
+  expressVisaAddOn        Float?
+  currency                String   @default("PKR")
   
   categoryId      String
   category        TripCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)

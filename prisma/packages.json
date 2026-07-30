@@ -1,0 +1,332 @@
+[
+  {
+    "category": "Family FIT",
+    "packages": [
+      {
+        "title": "4 Days/3 Nights",
+        "price": 278880.0,
+        "price3Star": 278880.0,
+        "price4Star": 305760.0,
+        "price5Star": 420000.0,
+        "islamabadDepartureAddOn": 9300.0,
+        "expressVisaAddOn": 6000.0,
+        "inclusions": [
+          "Accommodation",
+          "Return airfare from Lahore",
+          "Standard Visa fee",
+          "Breakfast",
+          "Airport transfer",
+          "Transport as per program",
+          "English-speaking guide-driver or guide",
+          "2 excursions",
+          "Bottled water"
+        ],
+        "durationDays": 4,
+        "durationText": "4 Days / 3 Nights"
+      },
+      {
+        "title": "5 Days/4 Nights",
+        "price": 307440.0,
+        "price3Star": 307440.0,
+        "price4Star": 346080.0,
+        "price5Star": 487200.0,
+        "islamabadDepartureAddOn": null,
+        "expressVisaAddOn": null,
+        "inclusions": [
+          "Accommodation",
+          "Return airfare from Lahore",
+          "Standard Visa fee",
+          "Breakfast",
+          "Airport transfer",
+          "Transport as per program",
+          "English-speaking guide-driver or guide",
+          "Baku, Gobustan, Mud Volcanoes, and Absheron Tours",
+          "Bottled water"
+        ],
+        "durationDays": 5,
+        "durationText": "5 Days / 4 Nights"
+      },
+      {
+        "title": "6 Days/5 Nights",
+        "price": 364560.0,
+        "price3Star": 364560.0,
+        "price4Star": 420000.0,
+        "price5Star": 604800.0,
+        "islamabadDepartureAddOn": null,
+        "expressVisaAddOn": null,
+        "inclusions": [
+          "Accommodation",
+          "Return airfare from Lahore",
+          "Standard Visa fee",
+          "Breakfast",
+          "Airport transfer",
+          "Transport as per program",
+          "English-speaking guide-driver or guide",
+          "Baku, Gabala/Absheron, and Gabala Tours",
+          "Bottled water"
+        ],
+        "durationDays": 6,
+        "durationText": "6 Days / 5 Nights"
+      },
+      {
+        "title": "7 Days/6 Nights",
+        "price": 409920.0,
+        "price3Star": 409920.0,
+        "price4Star": 480480.0,
+        "price5Star": 688800.0,
+        "islamabadDepartureAddOn": null,
+        "expressVisaAddOn": null,
+        "inclusions": [
+          "Accommodation",
+          "Return airfare from Lahore",
+          "Standard Visa fee",
+          "Breakfast",
+          "Airport transfer",
+          "Transport as per program",
+          "English-speaking guide-driver or guide",
+          "Baku, Gobustan, Absheron, Shamakhi, Sheki and Gabala Tours",
+          "Bottled water"
+        ],
+        "durationDays": 7,
+        "durationText": "7 Days / 6 Nights"
+      }
+    ]
+  },
+  {
+    "category": "Wellness FIT",
+    "packages": [
+      {
+        "title": "Naftalan: 7 Days/6 Nights",
+        "price": 359520.0,
+        "price3Star": 359520.0,
+        "price4Star": 399840.0,
+        "price5Star": 433440.0,
+        "islamabadDepartureAddOn": null,
+        "expressVisaAddOn": null,
+        "inclusions": [
+          "Accommodation",
+          "Return airfare from Lahore",
+          "Standard Visa fee",
+          "Breakfast",
+          "Airport transfer",
+          "Transport as per program",
+          "Baku, Naftalan",
+          "Wellness treatment",
+          "Bottled water"
+        ],
+        "durationDays": 7,
+        "durationText": "7 Days / 6 Nights"
+      },
+      {
+        "title": "Gabala: 7 Days/6 Nights",
+        "price": 396480.0,
+        "price3Star": 396480.0,
+        "price4Star": 443520.0,
+        "price5Star": 517440.0,
+        "islamabadDepartureAddOn": null,
+        "expressVisaAddOn": null,
+        "inclusions": [
+          "Accommodation",
+          "Return airfare from Lahore",
+          "Standard Visa fee",
+          "Breakfast",
+          "Airport transfer",
+          "Transport as per program",
+          "English-speaking guide-driver or guide",
+          "Baku and Gabala",
+          "Resort/Spa Access",
+          "Bottled water"
+        ],
+        "durationDays": 7,
+        "durationText": "7 Days / 6 Nights"
+      }
+    ]
+  },
+  {
+    "category": "Honeymoon FIT",
+    "packages": [
+      {
+        "title": "7 Days/6 Nights",
+        "price": 433440.0,
+        "price3Star": 433440.0,
+        "price4Star": 493920.0,
+        "price5Star": 688800.0,
+        "islamabadDepartureAddOn": null,
+        "expressVisaAddOn": null,
+        "inclusions": [
+          "Accommodation",
+          "Return airfare from Lahore",
+          "Standard Visa fee",
+          "Breakfast",
+          "Honeymoon room setup",
+          "Romantic Dinner",
+          "Airport transfer",
+          "Transport as per program",
+          "English-speaking guide-driver or guide",
+          "2 excursions; Baku, Absheron, Gabala Resort",
+          "Bottled water"
+        ],
+        "durationDays": 7,
+        "durationText": "7 Days / 6 Nights"
+      }
+    ]
+  },
+  {
+    "category": "Event Group",
+    "packages": [
+      {
+        "title": "Dream Fest: 5 Days/4 Nights",
+        "price": 285600.0,
+        "price3Star": 285600.0,
+        "price4Star": 315840.0,
+        "price5Star": 420000.0,
+        "islamabadDepartureAddOn": null,
+        "expressVisaAddOn": null,
+        "inclusions": [
+          "July 23 to July 26, 2026",
+          "Accommodation",
+          "Return airfare from Lahore",
+          "Standard Visa fee",
+          "Breakfast",
+          "Honeymoon room setup",
+          "Romantic Dinner",
+          "Airport transfer",
+          "Transport as per program",
+          "English-speaking guide-driver or guide",
+          "Baku, Absheron, Dream Fest at Sea Breeze Resort",
+          "Dreamfest Standard Ticket",
+          "Bottled water"
+        ],
+        "durationDays": 5,
+        "durationText": "5 Days / 4 Nights"
+      },
+      {
+        "title": "Formula 1: 5 Days/4 Nights",
+        "price": 598080.0,
+        "price3Star": 598080.0,
+        "price4Star": 688800.0,
+        "price5Star": 907200.0,
+        "islamabadDepartureAddOn": null,
+        "expressVisaAddOn": null,
+        "inclusions": [
+          "September 24 to September 26, 2026",
+          "Accommodation",
+          "Return airfare from Lahore",
+          "Standard Visa fee",
+          "Breakfast",
+          "Honeymoon room setup",
+          "Romantic Dinner",
+          "Airport transfer",
+          "Transport as per program",
+          "English-speaking guide-driver or guide",
+          "Baku city tour",
+          "F1 Grandstand ticket",
+          "Bottled water"
+        ],
+        "durationDays": 5,
+        "durationText": "5 Days / 4 Nights"
+      }
+    ]
+  },
+  {
+    "category": "MICE/ Corporate Group",
+    "packages": [
+      {
+        "title": "Corporate Baku Short MICE: 4 Days/3 Nights",
+        "price": 295680.0,
+        "price3Star": 295680.0,
+        "price4Star": 329280.0,
+        "price5Star": 436800.0,
+        "islamabadDepartureAddOn": null,
+        "expressVisaAddOn": null,
+        "inclusions": [
+          "Accommodation",
+          "Breakfast",
+          "Return Airfare",
+          "Standard Visa",
+          "Airport transfers",
+          "Meeting room half day",
+          "Basic AV",
+          "1 coffee break",
+          "Baku city tour",
+          "Gobustan/Absheron",
+          "1 gala dinner",
+          "Guide/escort."
+        ],
+        "durationDays": 4,
+        "durationText": "4 Days / 3 Nights"
+      },
+      {
+        "title": "Baku Incentive + Sea Breeze Experience: 5 Days/4 Nights",
+        "price": 332640.0,
+        "price3Star": 332640.0,
+        "price4Star": 376320.0,
+        "price5Star": 504000.0,
+        "islamabadDepartureAddOn": null,
+        "expressVisaAddOn": null,
+        "inclusions": [
+          "Accommodation",
+          "Breakfast",
+          "Return Airfare",
+          "Standard Visa",
+          "Transfers",
+          "Guide/escort",
+          "Meeting setup",
+          "1 coffee break",
+          "2 excursions",
+          "One incentive dinner/venue coordination"
+        ],
+        "durationDays": 5,
+        "durationText": "5 Days / 4 Nights"
+      },
+      {
+        "title": "Mountain Retreat MICE: 4 Days/3 Nights",
+        "price": 312480.0,
+        "price3Star": 312480.0,
+        "price4Star": 356160.0,
+        "price5Star": 456960.0,
+        "islamabadDepartureAddOn": null,
+        "expressVisaAddOn": null,
+        "inclusions": [
+          "Accommodation",
+          "Breakfast",
+          "Return Airfare",
+          "Standard Visa",
+          "Intercity transfers",
+          "Meeting room half day",
+          "Basic AV",
+          "Coffee break",
+          "Regional sightseeing",
+          "Guide/escort."
+        ],
+        "durationDays": 4,
+        "durationText": "4 Days / 3 Nights"
+      },
+      {
+        "title": "Conference + Culture Azerbaijan: 6 Days/5 Nights",
+        "price": 369600.0,
+        "price3Star": 369600.0,
+        "price4Star": 430080.0,
+        "price5Star": 604800.0,
+        "islamabadDepartureAddOn": null,
+        "expressVisaAddOn": null,
+        "inclusions": [
+          "Accommodation",
+          "Breakfast",
+          "Return Airfare",
+          "Standard Visa",
+          "Airport transfers",
+          "Full-day meeting room",
+          "Basic AV",
+          "2 coffee breaks",
+          "1 lunch",
+          "Sightseeing",
+          "1 gala dinner",
+          "Guide/escort"
+        ],
+        "durationDays": 6,
+        "durationText": "6 Days / 5 Nights"
+      }
+    ]
+  }
+]

@@ -17,11 +17,6 @@ export class CreateTripDto {
   @IsNumber()
   @IsOptional()
   @Type(() => Number)
-  price?: number;
-
-  @IsNumber()
-  @IsOptional()
-  @Type(() => Number)
   durationDays?: number;
 
   @IsString()
@@ -36,6 +31,35 @@ export class CreateTripDto {
 
   @IsOptional()
   pricing?: any;
+
+  @IsNumber()
+  @IsOptional()
+  @Type(() => Number)
+  price3Star?: number;
+
+  @IsNumber()
+  @IsOptional()
+  @Type(() => Number)
+  price4Star?: number;
+
+  @IsNumber()
+  @IsOptional()
+  @Type(() => Number)
+  price5Star?: number;
+
+  @IsNumber()
+  @IsOptional()
+  @Type(() => Number)
+  islamabadDepartureAddOn?: number;
+
+  @IsNumber()
+  @IsOptional()
+  @Type(() => Number)
+  expressVisaAddOn?: number;
+
+  @IsString()
+  @IsOptional()
+  currency?: string;
 
   @IsString()
   @IsNotEmpty()
